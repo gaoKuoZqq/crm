@@ -16,6 +16,7 @@ import com.crm.easyui.EasyUIDataGrideResult;
 import com.crm.pojo.User;
 import com.crm.responce.ServerResponse;
 import com.crm.service.IUserService;
+import com.crm.util.MD5Util;
 
 import net.sf.jsqlparser.expression.operators.relational.MultiExpressionList;
 import net.sf.jsqlparser.util.AddAliasesVisitor;
@@ -46,6 +47,7 @@ public class UserController {
 	@RequestMapping("add")
 	@ResponseBody
 	public ServerResponse<?> add(User user){
+		user.setPassword(MD5Util.EncodeUtf8AddSalt(user.getPassword()));
 		return userService.add(user);
 	}
 	
@@ -64,6 +66,7 @@ public class UserController {
 	@RequestMapping("checkLogin")
 	@ResponseBody
 	public ServerResponse<?> checkLogin(User user,HttpServletRequest request){
+		user.setPassword(MD5Util.EncodeUtf8AddSalt(user.getPassword()));
 		if (userService.checkLogin(user)) {
 			HttpSession session = request.getSession(true);
 			session.setAttribute("user", user);
@@ -88,6 +91,8 @@ public class UserController {
 	@RequestMapping("modifyPassword")
 	@ResponseBody
 	public ServerResponse<?> modifyPassword(String oldPassword, String newPassword, HttpServletRequest request){
+		oldPassword = MD5Util.EncodeUtf8AddSalt(oldPassword);
+		newPassword = MD5Util.EncodeUtf8AddSalt(newPassword);
 		HttpSession session = request.getSession(true);
 		User user = (User) session.getAttribute("user");
 		if ( user != null && oldPassword != null && oldPassword.equals(user.getPassword())) {
