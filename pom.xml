@@ -34,6 +34,8 @@
 		<slf4j.version>1.6.4</slf4j.version>
 		<!-- freemarker静态化 -->
 		<freemarker.version>2.3.23</freemarker.version>
+		<!-- poi插件 -->
+		<poi.version>3.9</poi.version>
 		<!-- Apache工具组件 -->
 		<commons-lang3.version>3.3.2</commons-lang3.version>
 		<commons-io.version>1.3.2</commons-io.version>
@@ -189,7 +191,12 @@
 			<artifactId>quartz-jobs</artifactId>
 			<version>${quartz.version}</version>
 		</dependency>
-
+		<!-- 用于到处excel表格(poi) -->
+		<dependency>
+			<groupId>repository.org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>${poi.version}</version>
+		</dependency>
 	</dependencies>
 
 	<build>

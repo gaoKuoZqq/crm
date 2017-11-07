@@ -177,6 +177,7 @@
 			<a class="easyui-linkbutton" href="javascript:openAddDialog()" iconCls="icon-add">添加</a>
 			<a class="easyui-linkbutton" href="javascript:openUpdateDialog()" iconCls="icon-edit">修改</a>
 			<a class="easyui-linkbutton" href="javascript:doDelete()" iconCls="icon-remove">删除</a>
+			<a class="easyui-linkbutton" href="${ctx}/saleChance/exportExcel.do" iconCls="icon-remove">导出表</a>
 		</div>
 		<div>
 			编号：<input type="text" id="s_id"/>

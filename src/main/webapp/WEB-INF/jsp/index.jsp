@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Insert title here</title>
+<title>客户关系管理</title>
 <script type="text/javascript">
 	function openTab(text, url, iconCls) {
 		if ($("#tabs").tabs("exists", text)) {
